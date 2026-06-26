@@ -1,35 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView >
-          <ThemedText type='title'>Home Screen</ThemedText>
-        </ThemedView>
+    <View className="flex-1 flex-row justify-center">
+      <SafeAreaView className="bg-warning-500">
+        <View className="flex-1 bg-primary">
+          <Text>Home Screen</Text>
+        </View>
       </SafeAreaView>
-    </ThemedView>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-  },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.two,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    paddingTop: Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-});
+// const styles = StyleSheet.create({
+//   safeArea: {
+//     flex: 1,
+//     paddingHorizontal: Spacing.two,
+//     alignItems: 'center',
+//     gap: Spacing.three,
+//     paddingBottom: BottomTabInset + Spacing.three,
+//     paddingTop: Spacing.three,
+//     maxWidth: MaxContentWidth,
+//   },
+// });

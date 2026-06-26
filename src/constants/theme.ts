@@ -1,65 +1,39 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+import { vars } from 'nativewind';
+import { Colors } from './colors';
 
-import '@/global.css';
+const hexToRgbChannels = (hex: string) => {
+  if (hex === '#00000000' || hex === 'transparent') return '0 0 0';
 
-import { Platform } from 'react-native';
+  const cleanHex = hex.replace('#', '');
+  const r = parseInt(cleanHex.substring(0, 2), 16);
+  const g = parseInt(cleanHex.substring(2, 4), 16);
+  const b = parseInt(cleanHex.substring(4, 6), 16);
 
-export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
-  dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
-  },
-} as const;
+  return `${r} ${g} ${b}`;
+};
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+const mapThemeToVars = (theme: Record<string, string>) => {
+  const cssVars: Record<string, string> = {};
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
+  for (const [key, value] of Object.entries(theme)) {
+    const kebabKey = key
+      .replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2')
+      .toLowerCase();
+    cssVars[`--color-${kebabKey}`] = hexToRgbChannels(value);
+  }
+
+  return vars(cssVars);
+};
+
+const THEMES = {
   default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
+    light: mapThemeToVars(Colors.light),
+    dark: mapThemeToVars(Colors.dark),
   },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
-});
+};
 
-export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
-} as const;
+type ThemeColorKeys = keyof typeof Colors.light;
+type ThemeMode = 'light' | 'dark';
+type ThemesType = keyof typeof THEMES;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+export { THEMES, type ThemeColorKeys, type ThemeMode, type ThemesType };

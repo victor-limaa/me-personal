@@ -1,0 +1,56 @@
+const color = (token) => `rgb(var(--color-${token}) / <alpha-value>)`;
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  presets: [require("nativewind/preset")],
+  theme: {
+    extend: {
+      colors: {
+        text: color('text'),
+        background: color('background'),
+        'text-secondary': color('text-secondary'),
+        primary: color('primary'),
+        secondary: color('secondary'),
+        tertiary: color('tertiary'),
+        neutral: color('neutral'),
+        outline: color('outline'),
+        'outline-variant': color('outline-variant'),
+        'surface-tint': color('surface-tint'),
+        'on-primary': color('on-primary'),
+        'on-secondary': color('on-secondary'),
+        'on-tertiary': color('on-tertiary'),
+        error: color('error'),
+        'on-error': color('on-error'),
+        'error-container': color('error-container'),
+        surface: color('surface'),
+      },
+      fontFamily: {
+        sans: ['system-ui', 'normal'],
+        serif: ['ui-serif', 'serif'],
+        rounded: ['ui-rounded', 'normal'],
+        mono: ['ui-monospace', 'monospace', 'JetBrains Mono'],
+        inter: ['Inter', 'sans-serif'],
+      },
+      spacing: {
+        xs: 2,
+        sm: 4,
+        md: 8,
+        lg: 16,
+        xl: 32,
+        '2xl': 64,
+      },
+      fontSize: {
+        xs: '12px',
+        sm: '14px',
+        base: '16px',
+        lg: '18px',
+        xl: '20px',
+        '2xl': '28px',
+        '3xl': '32px',
+        '4xl': '48px',
+      }
+    },
+  },
+  plugins: [],
+}
