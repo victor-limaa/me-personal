@@ -1,22 +1,24 @@
 import { Text as RNText, TextProps as RNTextProps } from 'react-native'
+import { twMerge } from 'tailwind-merge'
 
 interface TextProps extends RNTextProps {
-  variant: 'label' | 'base' | 'title' | 'headline' | 'stats'
+  variant?: 'label' | 'base' | 'title' | 'headline' | 'stats',
 }
 
 export const Text = (props: TextProps) => {
+  const { children, className, variant = 'base', ...textProps } = props
 
   const variants = {
-    label: "text-xs font-700 font-inter",
-    base: "text-base font-400 font-inter",
-    title: "text-xl font-700 font-inter",
-    headline: "text-2xl font-700 font-inter",
-    stats: "text-xs font-400 font-mono",
+    label: "text-xs font-bold font-inter",
+    base: "text-base font-normal font-inter",
+    title: "text-xl font-bold font-inter",
+    headline: "text-2xl font-bold font-inter",
+    stats: "text-xs font-normal font-mono",
   }
 
   return (
-    <RNText className={variants[props.variant] || variants.base} {...props}>
-      {props.children}
+    <RNText className={twMerge(variants[variant], className)} {...textProps}>
+      {children}
     </RNText>
   )
 }

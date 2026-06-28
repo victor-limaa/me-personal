@@ -11,7 +11,7 @@ export interface ThemeProviderProps {
 export function ThemeProvider({ theme, children }: ThemeProviderProps) {
   const { colorScheme } = useColorScheme();
   const finalTheme = (theme ?? 'default') as keyof typeof THEMES;
-  const currentTheme = THEMES[finalTheme][colorScheme ?? 'light'];
+  const currentTheme = THEMES[finalTheme]['dark'];
 
   return (
     <View className="flex-1" style={currentTheme}>
