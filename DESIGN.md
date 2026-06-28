@@ -111,7 +111,7 @@ spacing:
 
 ## Brand & Style
 
-The design system is engineered for high-intensity utility and peak performance. It targets fitness enthusiasts who require a focused, "heads-up" interface that remains legible under the physical stress of a workout. 
+The design system is engineered for high-intensity utility and peak performance. It targets fitness enthusiasts who require a focused, "heads-up" interface that remains legible under the physical stress of a workout.
 
 The aesthetic is a fusion of **Modern Minimalism** and **Glassmorphism**. It utilizes a dark, immersive "Obsidian" environment to reduce eye strain in gym lighting, punctuated by high-chroma "Electric" accents that signal action and progress. The emotional response is one of precision, energy, and relentless momentum.
 
@@ -135,6 +135,7 @@ Typography is prioritized for immediate glanceability. **Inter** is used for its
 The layout follows a strict 4px grid system to ensure mathematical harmony. On mobile, the system uses a flexible 4-column grid with generous 20px outer margins to prevent accidental touches near screen edges during movement.
 
 Vertical rhythm is driven by "stacking" logic:
+
 - **Stack-sm (8px):** Related elements (Label + Input).
 - **Stack-md (16px):** Distinct content blocks within a card.
 - **Stack-lg (32px):** Spacing between major section groups or cards.
@@ -153,7 +154,7 @@ Avoid heavy black shadows; instead, use "Glows" (outer blurs of the primary colo
 
 ## Shapes
 
-The design system utilizes a "Rounded" language to feel approachable and ergonomic. 
+The design system utilizes a "Rounded" language to feel approachable and ergonomic.
 
 - **Primary Radius:** 16px (1rem) for all main containers, cards, and large buttons.
 - **Large Radius:** 24px (1.5rem) for bottom sheets and feature tiles.
@@ -164,20 +165,25 @@ This high degree of roundedness contrasts with the sharp, technical typography, 
 ## Components
 
 ### Buttons
+
 - **Primary:** Solid Volt (#CCFF00) background with Black text. 16px radius. High impact, reserved for "Start Workout" or "Finish Set".
 - **Secondary:** Ghost style with 1px border of Electric Blue and subtle blue-tinted glass background.
 
 ### Cards & Workouts
-- Workout cards use the Level 1 Glassmorphism style. 
+
+- Workout cards use the Level 1 Glassmorphism style.
 - Headers within cards should use `label-caps` for exercise names to provide clear visual hierarchy.
 
 ### Inputs
+
 - Numeric inputs for weight/reps should use `stats-md` (JetBrains Mono).
 - Backgrounds are dark and recessed with a 2px bottom-border highlight that glows Volt when focused.
 
 ### Progress & Status
+
 - **Progress Bars:** Thick 12px tracks with rounded caps. The background track is 10% white; the fill is a gradient from Electric Blue to Volt.
 - **Status Indicators:** A simple solid circle. Volt for "Completed", Electric Blue for "In Progress", and a hollow ring for "Pending".
 
 ### Tactile Feedback
+
 - All components should be designed with large hit states. Sliders for weight adjustment should have oversized handles for easier manipulation during a session.

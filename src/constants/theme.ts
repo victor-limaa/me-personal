@@ -32,8 +32,25 @@ const THEMES = {
   },
 };
 
+const Spacing = {
+  half: 2,
+  one: 4,
+  two: 8,
+  three: 12,
+  four: 16,
+  six: 24,
+  eight: 32,
+};
+
 type ThemeColorKeys = keyof typeof Colors.light;
 type ThemeMode = 'light' | 'dark';
 type ThemesType = keyof typeof THEMES;
 
-export { THEMES, type ThemeColorKeys, type ThemeMode, type ThemesType };
+export {
+  Colors,
+  Spacing,
+  THEMES,
+  type ThemeColorKeys,
+  type ThemeMode,
+  type ThemesType,
+};

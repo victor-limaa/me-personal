@@ -1,0 +1,10 @@
+.expo
+android
+dist
+ios
+node_modules
+web-build
+
+expo-env.d.ts
+yarn.lock
+package-lock.json

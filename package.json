@@ -32,6 +32,10 @@
   "devDependencies": {
     "@types/react": "~19.2.2",
     "babel-preset-expo": "^56.0.15",
+    "eslint": "^9.39.4",
+    "eslint-config-expo": "^56.0.4",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.1",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.4.17",
     "typescript": "~6.0.3"
@@ -42,7 +46,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "lint:fix": "expo lint --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "private": true
 }
