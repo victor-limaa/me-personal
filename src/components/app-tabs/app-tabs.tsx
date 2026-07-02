@@ -18,7 +18,7 @@ export default function AppTabs() {
           fontWeight: '600',
         },
         selected: {
-          color: colors.text,
+          color: colors.primary,
           fontFamily: 'Inter',
           fontSize: 12,
           fontWeight: '700',

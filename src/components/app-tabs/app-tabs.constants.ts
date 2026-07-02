@@ -15,4 +15,14 @@ export const APP_TABS: readonly AppTab[] = [
     label: 'Home',
     name: 'home',
   },
+  {
+    icon: { sf: 'plus.circle', md: 'add' },
+    label: 'Create',
+    name: 'create',
+  },
+  {
+    icon: { sf: 'rectangle.grid.2x2', md: 'history' },
+    label: 'History',
+    name: 'history',
+  },
 ] as const;
