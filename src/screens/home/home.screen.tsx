@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <ScrollView className="flex-1 ">
-        <View className="p-4">
+      <ScrollView className="flex-1">
+        <View className="gap-2 p-4">
           <Text variant="headline" className="text-primary">
             Personal Tracker
           </Text>

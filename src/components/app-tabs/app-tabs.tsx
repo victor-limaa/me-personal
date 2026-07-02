@@ -1,10 +1,8 @@
+import { useAppTabs } from '@/components/app-tabs/use-app-tabs';
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
-import { Colors } from '@/constants/theme';
-import { lucideNativeTabIcons } from '@/components/ui/native-tabs-lucide-icons';
-
 export default function AppTabs() {
-  const colors = Colors['dark'];
+  const { colors, tabs } = useAppTabs();
 
   return (
     <NativeTabs
@@ -30,17 +28,12 @@ export default function AppTabs() {
       shadowColor={colors.background}
       tintColor={colors.primary}
     >
-      <NativeTabs.Trigger name="home">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
-          src={
-            <NativeTabs.Trigger.VectorIcon
-              family={lucideNativeTabIcons}
-              name="layout-dashboard"
-            />
-          }
-        />
-      </NativeTabs.Trigger>
+      {tabs.map((tab) => (
+        <NativeTabs.Trigger key={tab.name} name={tab.name}>
+          <NativeTabs.Trigger.Label>{tab.label}</NativeTabs.Trigger.Label>
+          <NativeTabs.Trigger.Icon sf={tab.icon.sf} md={tab.icon.md} />
+        </NativeTabs.Trigger>
+      ))}
     </NativeTabs>
   );
 }
