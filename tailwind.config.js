@@ -9,6 +9,8 @@ module.exports = {
       colors: {
         text: color('text'),
         background: color('background'),
+        'background-element': color('background-element'),
+        'background-selected': color('background-selected'),
         'text-secondary': color('text-secondary'),
         primary: color('primary'),
         secondary: color('secondary'),
@@ -24,6 +26,8 @@ module.exports = {
         'on-error': color('on-error'),
         'error-container': color('error-container'),
         surface: color('surface'),
+        white: color('white'),
+        black: color('black'),
       },
       fontFamily: {
         sans: ['system-ui', 'normal'],

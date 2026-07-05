@@ -19,11 +19,13 @@ export const Colors = {
     onError: '#690005',
     errorContainer: '#93000a',
     surface: '#353437',
+    white: '#ffffff',
+    black: '#000000',
   },
   dark: {
     text: '#e5e1e4',
     background: '#131315',
-    backgroundElement: '#27272A',
+    backgroundElement: '#161618',
     backgroundSelected: '#353437',
     textSecondary: '#C8C6C9',
     primary: '#CCFF00',
@@ -40,6 +42,8 @@ export const Colors = {
     onError: '#690005',
     errorContainer: '#93000a',
     surface: '#353437',
+    white: '#ffffff',
+    black: '#000000',
   },
 };
 

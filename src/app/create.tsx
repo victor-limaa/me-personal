@@ -1,5 +1,5 @@
-import HomeScreen from '@/screens/home/home.screen';
+import { CreateProtocolScreen } from '@/screens/create-protocol/create-protocol.screen';
 
 export default function CreatePage() {
-  return <HomeScreen />;
+  return <CreateProtocolScreen />;
 }
