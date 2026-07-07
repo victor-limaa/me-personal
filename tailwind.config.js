@@ -28,6 +28,8 @@ module.exports = {
         surface: color('surface'),
         white: color('white'),
         black: color('black'),
+        disabled: color('disabled'),
+        'text-disabled': color('text-disabled'),
       },
       fontFamily: {
         sans: ['system-ui', 'normal'],

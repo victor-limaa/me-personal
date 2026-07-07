@@ -1,4 +1,4 @@
-import { CreateProtocolScreen } from '@/screens/create-protocol/create-protocol.screen';
+import { CreateProtocolScreen } from '@/screens/create-protocol';
 
 export default function CreatePage() {
   return <CreateProtocolScreen />;

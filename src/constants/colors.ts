@@ -26,7 +26,7 @@ export const Colors = {
     text: '#e5e1e4',
     background: '#131315',
     backgroundElement: '#161618',
-    backgroundSelected: '#353437',
+    backgroundSelected: '#1C1B1D',
     textSecondary: '#C8C6C9',
     primary: '#CCFF00',
     secondary: '#007AFF',
@@ -44,6 +44,8 @@ export const Colors = {
     surface: '#353437',
     white: '#ffffff',
     black: '#000000',
+    disabled: '#3A3A3C',
+    textDisabled: '#6B6B6D',
   },
 };
 
