@@ -22,43 +22,50 @@ export const CreateProtocolScreen = () => {
     workoutSheets.some((sheet) => sheet.exercises.length > 0);
 
   return (
-    <SafeAreaView className="h-full flex-1 gap-8 bg-background p-4">
-      <View>
-        <TextInput
-          label="Nome de Protocolo"
-          className="text-xl"
-          value={protocolName}
-          onChangeText={setProtocolName}
+    <SafeAreaView className="h-full flex-1 bg-background p-4">
+      <FlatList
+        data={workoutSheets}
+        renderItem={({ item }) => (
+          <WorkoutSheetCard
+            name={item.name}
+            exercises={item.exercises}
+            onDelete={() => removeWorkoutSheet(item.id)}
+            onNameChange={(newName) => updateWorkoutSheetName(item.id, newName)}
+            onAddExercise={(exercise) =>
+              addExerciseToWorkoutSheet(item.id, exercise)
+            }
+            onReorderExercises={(exercises) =>
+              reorderWorkoutSheetExercises(item.id, exercises)
+            }
+          />
+        )}
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={
+          <View>
+            <TextInput
+              label="Nome de Protocolo"
+              className="text-xl"
+              value={protocolName}
+              onChangeText={setProtocolName}
+            />
+          </View>
+        }
+        ListFooterComponent={
+          <AddWorkoutSheetCard onPress={() => addWorkoutSheet('Nova Ficha')} />
+        }
+        contentContainerStyle={{
+          gap: 32,
+          paddingBottom: 32,
+        }}
+        showsVerticalScrollIndicator={false}
+      />
+      <View className="pt-4">
+        <Button
+          title="Criar Protocolo"
+          variant="glow"
+          disabled={!canCreateProtocol}
         />
       </View>
-      {workoutSheets.length > 0 && (
-        <FlatList
-          data={workoutSheets}
-          renderItem={({ item }) => (
-            <WorkoutSheetCard
-              name={item.name}
-              exercises={item.exercises}
-              onDelete={() => removeWorkoutSheet(item.id)}
-              onNameChange={(newName) =>
-                updateWorkoutSheetName(item.id, newName)
-              }
-              onAddExercise={(exercise) =>
-                addExerciseToWorkoutSheet(item.id, exercise)
-              }
-              onReorderExercises={(exercises) =>
-                reorderWorkoutSheetExercises(item.id, exercises)
-              }
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      )}
-      <AddWorkoutSheetCard onPress={() => addWorkoutSheet('Nova Ficha')} />
-      <Button
-        title="Criar Protocolo"
-        variant="glow"
-        disabled={!canCreateProtocol}
-      />
     </SafeAreaView>
   );
 };

@@ -1,6 +1,6 @@
 import { Colors } from '@/constants/colors';
 import Lucide, { LucideIconName } from '@react-native-vector-icons/lucide';
-import { Pressable } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { twMerge } from 'tailwind-merge';
 import { Text } from './text';
 
@@ -42,10 +42,10 @@ export const Button = ({
   const disabledIconColor = Colors.dark.textDisabled;
 
   return (
-    <Pressable
+    <TouchableOpacity
       className={twMerge(
         variantStyles[variant],
-        disabled && 'bg-disabled text-disabled border-disabled shadow-none',
+        disabled && 'border-disabled bg-disabled text-disabled shadow-none',
         'flex-row items-center justify-center gap-2 rounded-md p-4',
       )}
       disabled={disabled}
@@ -74,6 +74,6 @@ export const Button = ({
           color={disabled ? disabledIconColor : iconColor[variant]}
         />
       )}
-    </Pressable>
+    </TouchableOpacity>
   );
 };
