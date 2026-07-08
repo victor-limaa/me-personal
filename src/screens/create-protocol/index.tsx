@@ -11,6 +11,7 @@ export const CreateProtocolScreen = () => {
     addWorkoutSheet,
     addExerciseToWorkoutSheet,
     removeWorkoutSheet,
+    reorderWorkoutSheetExercises,
     protocolName,
     setProtocolName,
     updateWorkoutSheetName,
@@ -43,6 +44,9 @@ export const CreateProtocolScreen = () => {
               }
               onAddExercise={(exercise) =>
                 addExerciseToWorkoutSheet(item.id, exercise)
+              }
+              onReorderExercises={(exercises) =>
+                reorderWorkoutSheetExercises(item.id, exercises)
               }
             />
           )}

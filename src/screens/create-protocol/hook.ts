@@ -41,6 +41,17 @@ export const useCreateProtocol = () => {
     );
   };
 
+  const reorderWorkoutSheetExercises = (
+    workoutSheetId: string,
+    exercises: Exercise[],
+  ) => {
+    setWorkoutSheets((prevSheets) =>
+      prevSheets.map((sheet) =>
+        sheet.id === workoutSheetId ? { ...sheet, exercises } : sheet,
+      ),
+    );
+  };
+
   return {
     protocolName,
     setProtocolName,
@@ -48,6 +59,7 @@ export const useCreateProtocol = () => {
     addWorkoutSheet,
     addExerciseToWorkoutSheet,
     removeWorkoutSheet,
+    reorderWorkoutSheetExercises,
     updateWorkoutSheetName,
   };
 };
